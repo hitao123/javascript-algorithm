@@ -1,5 +1,5 @@
 import LinkedListNode from './LinkedListNode';
-
+import Comparator from '../../utils/comparator/Comparator';
 export default class LinkList {
   constructor(comparatorFunction) {
     this.tail = null;
@@ -28,7 +28,7 @@ export default class LinkList {
    * @param {*} value 
    */
   prepend(value) {
-    this.head = new LinkedListNode(value);
+    this.head = new LinkedListNode(value, this.head);
     return this;
   }
   /**
@@ -50,7 +50,7 @@ export default class LinkList {
     if (currentNode !== null) {
       while (currentNode.next) {
         if (this.compare.equal(currentNode.next.value, value)) {
-          deleteNode = currentNode;
+          deleteNode = currentNode.next;
           currentNode.next = currentNode.next.next;
         } else {
           currentNode = currentNode.next;
@@ -79,19 +79,37 @@ export default class LinkList {
    * 在链表里面找到某个值
    * @param {*} value 
    */
-  find(value) {
-
+  find({ value }) {
+    if (!this.head) {
+      return null;
+    }
+    let currentNode = this.head;
+    while (currentNode) {
+      if (this.compare.equal(value, currentNode.value)) {
+        return currentNode;
+      }
+      currentNode = currentNode.next;
+    }
+    return null;
   }
   /**
    * 
    */
   toArray() {
+    const nodes = [];
 
+    let currentNode = this.head;
+    while (currentNode)  {
+      nodes.push(currentNode);
+      currentNode = currentNode.next;
+    }
+
+    return nodes;
   }
   /**
    * 
    */
-  toString() {
-
+  toString(callback) {
+    return this.toArray().map(node => node.toString(callback)).toString();
   }
 }
