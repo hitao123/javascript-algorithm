@@ -77,4 +77,32 @@ describe('LinkedList', () => {
     const node = linkedList.find({ value: 2 });
     expect(node.value).toBe(2);
   })
+
+  it('should delete head', () => {
+    const linkedList = new LinkedList();
+    expect(linkedList.deleteHead()).toBeNull;
+
+    linkedList.append(2);
+    linkedList.deleteHead();
+    expect(linkedList.toString()).toBe('');
+
+    linkedList.append(2);
+    linkedList.append(3);
+    linkedList.deleteHead();
+    expect(linkedList.toString()).toBe('3');
+  })
+
+  it('should delete tail', () => {
+    const linkedList = new LinkedList();
+    expect(linkedList.deleteTail()).toBeNull;
+
+    linkedList.append(2);
+    linkedList.deleteTail();
+    expect(linkedList.toString()).toBe('');
+
+    linkedList.append(2);
+    linkedList.append(6);
+    linkedList.deleteTail();
+    expect(linkedList.toString()).toBe('2');
+  })
 })

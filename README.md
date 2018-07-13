@@ -3,8 +3,11 @@
 ## 数据结构
 
 - [x] linklist
-- [ ] queue
-- [ ] stack
+- [x] queue
+- [x] stack
+- [x] tree
+- [x] heap
+- [x] graph
 
 ## 算法
 

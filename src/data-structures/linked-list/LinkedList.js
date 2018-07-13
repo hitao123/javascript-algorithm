@@ -67,13 +67,40 @@ export default class LinkList {
    * 
    */
   deleteTail() {
-
+    if (this.head === this.tail) {
+      const deleteNode = this.tail;
+      this.head = null;
+      this.tail = null;
+      return deleteNode;
+    }
+    const deleteNode = this.tail;
+    let currentNode = this.head;
+    // 从前往后找
+    while (currentNode.next) {
+      if (!currentNode.next.next) {
+        currentNode.next = null;
+      } else {
+        currentNode = currentNode.next;
+      }
+    }
+    this.tail = currentNode;
+    return deleteNode;
   }
   /**
    * 
    */
   deleteHead() {
-
+    if (!this.head) {
+      return null;
+    }
+    let deleteNode = this.head;
+    if (this.head.next) {
+      this.head = this.head.next;
+    } else {
+      this.head = null;
+      this.tail = null;
+    }
+    return deleteNode;
   }
   /**
    * 在链表里面找到某个值
