@@ -21,6 +21,13 @@ export default class Stack {
     this.linkedList.append(value);
   }
 
+  peek() {
+    if (!this.linkedList.tail) {
+      return null;
+    }
+    return this.linkedList.tail.value
+  }
+
   toArray() {
     return this.linkedList.toArray().map(node => node.value).reverse();
   }

@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint ./src/*",
-    "test": "jest || true",
-    "ci": "npm run lint && npm run test -- --coverage || true",
+    "test": "jest",
+    "ci": "npm run lint && npm run test -- --coverage",
     "codecov": "codecov"
   },
   "pre-commit": [
