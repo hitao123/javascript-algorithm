@@ -22,11 +22,11 @@ export default class Comparator {
     return this.compare(a, b) > 0;
   }
 
-  lessThanOrEqual() {
+  lessThanOrEqual(a, b) {
     return this.compare(a, b) <= 0;
   }
 
-  greaterThanOrEqual() {
+  greaterThanOrEqual(a, b) {
     return this.compare(a, b) >= 0;
   }
 
@@ -34,5 +34,4 @@ export default class Comparator {
     const compareOriginal = this.compare;
     this.compare = (a, b) => compareOriginal(b, a);
   }
-
 }

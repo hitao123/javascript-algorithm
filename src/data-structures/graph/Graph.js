@@ -1,6 +1,8 @@
 
 export default class Graph {
-  constructor() {
-    
+  constructor(isDirected = false) {
+    this.vertices = {};
+    this.edges = {};
+    this.isDirected = isDirected;
   }
 }

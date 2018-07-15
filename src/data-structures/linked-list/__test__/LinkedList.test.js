@@ -1,9 +1,10 @@
-import LinkedList from '../LinkedList'
+import LinkedList from '../LinkedList';
 
 describe('LinkedList', () => {
   it('should create empty LinkedList', () => {
-    const list = new LinkedList();
-  })
+    const linkedList = new LinkedList();
+    expect(linkedList.toString()).toBe('');
+  });
 
   it('should append node to link list', () => {
     const linkedList = new LinkedList();
@@ -15,15 +16,15 @@ describe('LinkedList', () => {
     linkedList.append(2);
 
     expect(linkedList.toString()).toBe('1,2');
-  })
+  });
 
   it('should prepend node to link list', () => {
     const linkedList = new LinkedList();
-    
+
     linkedList.append(1);
     linkedList.prepend(2);
     expect(linkedList.toString()).toBe('2,1');
-  })
+  });
 
   it('should delete node by value from link list', () => {
     const linkedList = new LinkedList();
@@ -60,27 +61,26 @@ describe('LinkedList', () => {
 
     linkedList.delete(2);
     expect(linkedList.toString()).toBe('');
-  
-  })
+  });
 
   it('should find node by value', () => {
     const linkedList = new LinkedList();
-    expect(linkedList.find({ value: 1})).toBeNull();
+    expect(linkedList.find({ value: 1 })).toBeNull();
 
     linkedList.append(1);
     expect(linkedList.find({ value: 1 })).toBeDefined();
 
     linkedList
       .append(2)
-      .append(3)
-    
+      .append(3);
+
     const node = linkedList.find({ value: 2 });
     expect(node.value).toBe(2);
-  })
+  });
 
   it('should delete head', () => {
     const linkedList = new LinkedList();
-    expect(linkedList.deleteHead()).toBeNull;
+    expect(linkedList.deleteHead()).toBeNull();
 
     linkedList.append(2);
     linkedList.deleteHead();
@@ -90,11 +90,11 @@ describe('LinkedList', () => {
     linkedList.append(3);
     linkedList.deleteHead();
     expect(linkedList.toString()).toBe('3');
-  })
+  });
 
   it('should delete tail', () => {
     const linkedList = new LinkedList();
-    expect(linkedList.deleteTail()).toBeNull;
+    expect(linkedList.deleteTail()).toBeNull();
 
     linkedList.append(2);
     linkedList.deleteTail();
@@ -104,5 +104,5 @@ describe('LinkedList', () => {
     linkedList.append(6);
     linkedList.deleteTail();
     expect(linkedList.toString()).toBe('2');
-  })
-})
+  });
+});

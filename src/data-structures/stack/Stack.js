@@ -15,7 +15,7 @@ export default class Stack {
   }
   /**
    * push
-   * @param {*} value 
+   * @param {*} value
    */
   push(value) {
     this.linkedList.append(value);
@@ -25,7 +25,7 @@ export default class Stack {
     if (!this.linkedList.tail) {
       return null;
     }
-    return this.linkedList.tail.value
+    return this.linkedList.tail.value;
   }
 
   toArray() {
@@ -35,4 +35,4 @@ export default class Stack {
   toString(callback) {
     return this.linkedList.toString(callback);
   }
-} 
+}

@@ -22,7 +22,7 @@ export default class Queue {
     if (!this.linkedList.head) {
       return null;
     }
-    return this.linkedList.head.value
+    return this.linkedList.head.value;
   }
 
   toString(callback) {

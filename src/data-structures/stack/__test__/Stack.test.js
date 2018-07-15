@@ -12,7 +12,7 @@ describe('Stack', () => {
     expect(stack.pop()).toBe(2);
     expect(stack.pop()).toBeNull();
     expect(stack.isEmpty()).toBeTruthy();
-  })
+  });
   it('Stack push', () => {
     const stack = new Stack();
     stack.push(2);
@@ -21,11 +21,10 @@ describe('Stack', () => {
 
 
     expect(stack.toString()).toBe('2,3,5');
-
-  })
+  });
   it('stack isEmpty', () => {
-    let stack = new Stack();
+    const stack = new Stack();
     expect(stack).not.toBeNull();
     expect(stack.linkedList).not.toBeNull();
-  })
-})
+  });
+});

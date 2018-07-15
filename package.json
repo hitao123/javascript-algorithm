@@ -4,7 +4,7 @@
   "description": "javascript algorithm",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint ./src/*",
+    "lint": "eslint ./src/* --fix",
     "test": "jest",
     "ci": "npm run lint && npm run test -- --coverage",
     "codecov": "codecov"

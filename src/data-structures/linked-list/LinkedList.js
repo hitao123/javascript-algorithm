@@ -1,5 +1,6 @@
 import LinkedListNode from './LinkedListNode';
 import Comparator from '../../utils/comparator/Comparator';
+
 export default class LinkList {
   constructor(comparatorFunction) {
     this.tail = null;
@@ -8,15 +9,15 @@ export default class LinkList {
   }
   /**
    * 链表添加一个元素
-   * @param {*} value 
+   * @param {*} value
    */
   append(value) {
-    let newNode = new LinkedListNode(value);
+    const newNode = new LinkedListNode(value);
     // 如果没有头指针
     if (!this.head) {
       this.head = newNode;
       this.tail = newNode;
-      return this
+      return this;
     }
     // 添加新节点到链表中
     this.tail.next = newNode;
@@ -24,8 +25,8 @@ export default class LinkList {
     return this;
   }
   /**
-   * 
-   * @param {*} value 
+   *
+   * @param {*} value
    */
   prepend(value) {
     this.head = new LinkedListNode(value, this.head);
@@ -33,11 +34,11 @@ export default class LinkList {
   }
   /**
    * 删除链表的一个元素
-   * @param {*} value 
+   * @param {*} value
    */
   delete(value) {
     if (!this.head) {
-      return null
+      return null;
     }
     let deleteNode = null;
     // 删除为头结点，需要将头结点指向下一个结点
@@ -45,7 +46,7 @@ export default class LinkList {
       deleteNode = this.head;
       this.head = this.head.next;
     }
-    // 
+    //
     let currentNode = this.head;
     if (currentNode !== null) {
       while (currentNode.next) {
@@ -61,10 +62,10 @@ export default class LinkList {
     if (this.compare.equal(this.tail.value, value)) {
       this.tail = currentNode;
     }
-    return deleteNode
+    return deleteNode;
   }
   /**
-   * 
+   *
    */
   deleteTail() {
     if (this.head === this.tail) {
@@ -87,13 +88,13 @@ export default class LinkList {
     return deleteNode;
   }
   /**
-   * 
+   *
    */
   deleteHead() {
     if (!this.head) {
       return null;
     }
-    let deleteNode = this.head;
+    const deleteNode = this.head;
     if (this.head.next) {
       this.head = this.head.next;
     } else {
@@ -104,7 +105,7 @@ export default class LinkList {
   }
   /**
    * 在链表里面找到某个值
-   * @param {*} value 
+   * @param {*} value
    */
   find({ value }) {
     if (!this.head) {
@@ -120,13 +121,13 @@ export default class LinkList {
     return null;
   }
   /**
-   * 
+   *
    */
   toArray() {
     const nodes = [];
 
     let currentNode = this.head;
-    while (currentNode)  {
+    while (currentNode) {
       nodes.push(currentNode);
       currentNode = currentNode.next;
     }
@@ -134,7 +135,7 @@ export default class LinkList {
     return nodes;
   }
   /**
-   * 
+   *
    */
   toString(callback) {
     return this.toArray().map(node => node.toString(callback)).toString();
