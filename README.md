@@ -8,9 +8,10 @@
 - [x] linklist
 - [x] queue
 - [x] stack
-- [x] tree
+- [x] hashtable
 - [x] heap
-- [x] graph
+- [] tree
+- [] graph
 
 ## 算法
 

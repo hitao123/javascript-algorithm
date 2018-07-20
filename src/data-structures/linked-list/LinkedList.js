@@ -107,12 +107,18 @@ export default class LinkList {
    * 在链表里面找到某个值
    * @param {*} value
    */
-  find({ value }) {
+  find({ value = undefined, callback = undefined }) {
     if (!this.head) {
       return null;
     }
     let currentNode = this.head;
     while (currentNode) {
+      // 如果回调函数不为空
+      if (callback && callback(currentNode.value)) {
+        return currentNode;
+      }
+
+      // 如果值被特指
       if (this.compare.equal(value, currentNode.value)) {
         return currentNode;
       }

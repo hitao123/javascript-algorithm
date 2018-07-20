@@ -105,4 +105,18 @@ describe('LinkedList', () => {
     linkedList.deleteTail();
     expect(linkedList.toString()).toBe('2');
   });
+
+  it('should find node by callback', () => {
+    const linkedList = new LinkedList();
+
+    linkedList.append({ key: 'test1', value: 1 });
+    linkedList.append({ key: 'test2', value: 2 });
+    linkedList.append({ key: 'test3', value: 3 });
+
+    const node = linkedList.find({ callback: value => value.key === 'test1' });
+    expect(node).toBeDefined();
+    expect(node.value.value).toBe(1);
+    expect(node.value.key).toBe('test1');
+    expect(linkedList.find({ callback: value => value.key === 'test5' })).toBeNull();
+  });
 });
