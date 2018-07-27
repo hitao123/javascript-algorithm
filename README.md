@@ -10,8 +10,9 @@
 - [x] stack
 - [x] hashtable
 - [x] heap
-- [] tree
-- [] graph
+- [x] tree
+- [x] trie
+- [x] graph
 
 ## 算法
 
