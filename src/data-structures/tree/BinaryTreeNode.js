@@ -11,6 +11,16 @@ export default class BinaryTreeNode {
     this.meta = new HashTable();
     this.nodeComparator = new Comparator();
   }
+  /**
+   * copy
+   * @param {BinaryTreeNode} sourceNode
+   * @param {BinaryTreeNode} targetNode
+   */
+  static copeNode(sourceNode, targetNode) {
+    targetNode.setValue(sourceNode.value);
+    targetNode.setLeft(sourceNode.left);
+    targetNode.setRight(sourceNode.right);
+  }
 
   get leftHeight() {
     if (!this.left) {
