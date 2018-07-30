@@ -119,7 +119,7 @@ export default class LinkList {
       }
 
       // 如果值被特指
-      if (this.compare.equal(value, currentNode.value)) {
+      if (value !== undefined && this.compare.equal(value, currentNode.value)) {
         return currentNode;
       }
       currentNode = currentNode.next;
