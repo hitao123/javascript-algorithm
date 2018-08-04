@@ -352,7 +352,7 @@ describe('Graph', () => {
       .addEdge(edgeBD);
 
     const adjacencyMatrix = graph.getAdjacencyMatrix();
-    console.log(adjacencyMatrix);
+
     expect(adjacencyMatrix).toEqual([
       [Infinity, 0, Infinity, Infinity],
       [0, Infinity, 0, 0],
