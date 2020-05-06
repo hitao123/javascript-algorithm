@@ -6,43 +6,77 @@
  * [1, 2, 10, 7] ===> [1, 2, 7, 10]
  * @param {*} arr
  */
-const qSort = (arr, start = 0, end = arr.length - 1) => {
+const qSort = (arr, left = 0, right = arr.length - 1) => {
   if (!Array.isArray(arr)) {
     throw new TypeError('arr shuold be array');
   }
 
-  function swap(sArr, i, j) {
-    let temp = null;
-    temp = sArr[i];
-    sArr[i] = sArr[j];
-    sArr[j] = temp;
-  }
+  // 方法一 这种好久没看懂
+  // function swap(i, j) {
+  //   let temp = null;
+  //   temp = arr[i];
+  //   arr[i] = arr[j];
+  //   arr[j] = temp;
+  // }
 
-  // 划分
-  function partition(sArr, left, right) {
-    const pivot = sArr[right];
-    let cursor = left - 1;
+  // // 划分
+  // function partition(left, right) {
+  //   const pivot = arr[right];
+  //   let cursor = left - 1;
 
-    for (let i = left; i <= right - 1; i += 1) {
-      if (sArr[cursor] < pivot) {
-        swap(sArr, ++cursor, i);
-      }
-    }
+  //   for (let i = left; i <= right - 1; i += 1) {
+  //     if (arr[i] <= pivot) {
+  //       swap(++cursor, i);
+  //     }
+  //   }
 
-    swap(sArr, ++cursor, right);
+  //   swap(++cursor, right);
 
-    return cursor;
-  }
+  //   return cursor;
+  // }
 
-  if (start >= end) {
+  // if (start >= end) {
+  //   return;
+  // }
+
+  // const index = partition(start, end);
+
+  // 方法二
+
+  if (left >= right) {
     return;
   }
 
-  const index = partition(arr, start, end);
-  qSort(arr, start, index - 1);
-  qSort(arr, index + 1, end);
-};
+  const pivot = arr[left];
+  let cursor = left;
 
-// console.log(qSort([1, 7, 6, 34, 23, 10, 2, 8]));
+  let i = left;
+  let j = right;
+
+  while (i < j) {
+    while (i < j && arr[j] >= pivot) {
+      j -= 1;
+    }
+
+    if (i < j) {
+      arr[cursor] = arr[j];
+      cursor = j;
+    }
+
+    while (i < j && arr[i] <= pivot) {
+      i += 1;
+    }
+
+    if (i < j) {
+      arr[cursor] = arr[i];
+      cursor = i;
+    }
+  }
+
+  arr[cursor] = pivot;
+
+  qSort(arr, left, cursor - 1);
+  qSort(arr, cursor + 1, right);
+};
 
 export default qSort;
